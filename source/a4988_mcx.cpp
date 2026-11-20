@@ -10,7 +10,7 @@ export namespace a4988_mcx {
 
 class a4988_mcx: public stepper_driver::stepper_driver {
 public:
-    a4988_mcx( uint32_t n_enable, uint32_t ms1, uint32_t ms2,  uint32_t ms3, PORT_Type *gpio) :
+    a4988_mcx( uint32_t n_enable, uint32_t ms1, uint32_t ms2,  uint32_t ms3, GPIO_Type *gpio) :
         n_enable_(n_enable), ms1_(ms1), ms2_(ms2), ms3_(ms3), gpio_(gpio) {}
     virtual inline  bool init() override { 
         return true;
@@ -51,7 +51,7 @@ private:
     uint32_t ms1_;
     uint32_t ms2_;
     uint32_t ms3_;
-    PORT_Type *gpio_;
+    GPIO_Type *gpio_;
 
     virtual void init_gpio() {
         // done by sysconfif
