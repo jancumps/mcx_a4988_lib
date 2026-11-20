@@ -4,13 +4,13 @@ module;
 
 import stepper_driver;
 
-export module a4988_mspm0;
+export module a4988_mcx;
 
-export namespace a4988_mspm0 {
+export namespace a4988_mcx {
 
-class a4988_mspm0: public stepper_driver::stepper_driver {
+class a4988_mcx: public stepper_driver::stepper_driver {
 public:
-    a4988_mspm0( uint32_t n_enable, uint32_t ms1, uint32_t ms2,  uint32_t ms3, GPIO_Type *gpio) :
+    a4988_mcx( uint32_t n_enable, uint32_t ms1, uint32_t ms2,  uint32_t ms3, GPIO_Type *gpio) :
         n_enable_(n_enable), ms1_(ms1), ms2_(ms2), ms3_(ms3), gpio_(gpio) {}
     virtual inline  bool init() override { 
         return true;
@@ -59,6 +59,6 @@ private:
     void put(uint32_t pin, bool set) {
         GPIO_PinWrite(gpio_, pin, set ? pin : 0U);
     }
-}; // class a4988_mspm0
+}; // class a4988_mcx
 
-} // namespace a4988_mspm0
+} // namespace a4988_mcx
